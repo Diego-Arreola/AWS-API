@@ -1,13 +1,16 @@
-const express = require('express');
+import express from 'express';
+import profesoresRoute from './routes/profesores.js';
+import alumnosRoute from './routes/alumnos.js';
+
 const app = express();
 const port = 3000;
 
-const profesoresRouter = require('./routes/profesores.js');
-const alumnosRouter = require('./routes/alumnos.js');
 
 app.use(express.json());
-app.use('/alumnos', alumnosRouter);
-app.use('/profesores', profesoresRouter);
+app.use(express.urlencoded({ extended: true }))
+
+app.use('/', alumnosRoute);
+app.use('/', profesoresRoute);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
