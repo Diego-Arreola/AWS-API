@@ -23,8 +23,7 @@ export const getProfesor = (request, response) => {
 
 export const postProfesor = (request, response) => {
     try{
-        const { numeroEmpleado, nombres, apellidos, horasClase } = request.body;
-        const id = profesores.length + 1;
+        const {id, numeroEmpleado, nombres, apellidos, horasClase } = request.body;
         const profesor = new Profesor(id, numeroEmpleado, nombres, apellidos, horasClase);
         if (!validarProfesor(profesor)) return response.status(400).json({ error: 'Invalid data' });
         profesores.push(profesor);
