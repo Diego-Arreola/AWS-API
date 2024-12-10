@@ -1,17 +1,18 @@
 import express from 'express';
+import { profesorDataValidatebyBody, profesorDataValidatebyParams } from '../validation/validarProfesor.js';
 import { getProfesores, getProfesor, postProfesor, putProfesor, deleteProfesor } from '../controllers/profesorControlador.js';
 
 const router = express.Router();
 
 router.get('/profesores', getProfesores);
 
-router.get('/profesores/:id', getProfesor);
+router.get('/profesores/:id', profesorDataValidatebyParams, getProfesor);
 
-router.post('/profesores', postProfesor);
+router.post('/profesores', profesorDataValidatebyBody, postProfesor);
 
-router.put('/profesores/:id', putProfesor);
+router.put('/profesores/:id', profesorDataValidatebyBody, profesorDataValidatebyParams, putProfesor);
 
-router.delete('/profesores/:id', deleteProfesor);
+router.delete('/profesores/:id', profesorDataValidatebyParams, deleteProfesor);
 
 router.route('/profesores')
     .all((req, res) => {

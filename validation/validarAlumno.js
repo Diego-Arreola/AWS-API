@@ -1,9 +1,31 @@
-export const validarAlumno = (alumno) => {
-    if (!alumno.id || typeof alumno.id !== 'number') return false;
-    if (!alumno.nombres || typeof alumno.nombres !== 'string') return false;
-    if (!alumno.apellidos || typeof alumno.apellidos !== 'string') return false;
-    if (!alumno.matricula || typeof alumno.matricula !== 'string') return false;
-    if (!alumno.promedio || typeof alumno.promedio !== 'number') return false;
-    return true;
-}
+import { body, param, validationResult } from "express-validator";
 
+export const alumnoDataValidatebyBody = [
+    body("nombres")
+        .exists({ checkFalsy: true })
+        .withMessage("El campo 'nombre' es requerido."),
+
+    body("apellidos")
+        .exists({ checkFalsy: true })
+        .withMessage("El campo 'apellidos' es requerido."),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty())
+            return res.status(400).json({ errors: errors.array().map((error) => error.msg) });
+        next();
+    },
+];
+
+export const alumnoDataValidatebyParams = [
+    param("id")
+        .exists({ checkFalsy: true })
+        .withMessage("El campo 'id' es requerido."),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty())
+            return res.status(400).json({ errors: errors.array().map((error) => error.msg) });
+        next();
+    },
+];
