@@ -58,7 +58,3 @@ This project is an Express.js application for managing `Alumno` and `Profesor` e
 - `POST /profesores`: Create a new profesor.
 - `PUT /profesores/:id`: Update an existing profesor by ID.
 - `DELETE /profesores/:id`: Delete a profesor by ID.
-
-## License
-
-This project is licensed under the ISC License.
