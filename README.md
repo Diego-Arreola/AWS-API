@@ -6,16 +6,20 @@ This project is an Express.js application for managing `Alumno` and `Profesor` e
 
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/Diego-Arreola/AWS-API.git
     ```
 
-2. Install dependencies:
+2. Open project directory:
+    ```sh
+    cd AWS-API
+    ```
+
+3. Install dependencies:
     ```sh
     npm install
     ```
 
-3. Create a [.env](http://_vscodecontentref_/16) file in the root directory and add your environment variables:
+4. Create a [.env](http://_vscodecontentref_/16) file in the root directory and add your environment variables:
     ```env
     DATABASE_URL="mysql://<username>:<password>@<host>:<port>/<database>"
     AWS_ACCESS_KEY_ID="<your-access-key-id>"
@@ -26,12 +30,12 @@ This project is an Express.js application for managing `Alumno` and `Profesor` e
     S3_BUCKET_NAME="<your-s3-bucket-name>"
     ```
 
-4. Run database migrations:
+5. Run database migrations:
     ```sh
     npx prisma migrate deploy
     ```
 
-5. Start the server:
+6. Start the server:
     ```sh
     npm start
     ```
