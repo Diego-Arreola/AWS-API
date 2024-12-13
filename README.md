@@ -52,13 +52,13 @@ This project is an Express.js application for managing `Alumno` and `Profesor` e
 - `POST /alumnos/:id/fotoPerfil`: Upload a profile photo for an alumno.
 - `POST /alumnos/:id/session/login`: Login session for an alumno.
 - `POST /alumnos/:id/session/logout`: Logout an alumno's session.
-- `POST /alumnos/:id/session/verify`: Verify an aluumno's session.
+- `POST /alumnos/:id/session/verify`: Verify an alumno's session.
 - `POST /alumnos/:id/email`: Send an email notification with an alumno's information.
 
 ### Profesores
 
 - `GET /profesores`: Get all profesores.
-- `GET /profesores/:id`: Get a single profesor by ID.
+- `GET /profesores/:id`: Get a single profesor.
 - `POST /profesores`: Create a new profesor.
-- `PUT /profesores/:id`: Update an existing profesor by ID.
-- `DELETE /profesores/:id`: Delete a profesor by ID.
+- `PUT /profesores/:id`: Update an existing profesor.
+- `DELETE /profesores/:id`: Delete a profesor.
